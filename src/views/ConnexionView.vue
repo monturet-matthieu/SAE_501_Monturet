@@ -23,7 +23,7 @@
           placeholder="Mot de Passe"
         />
 
-        <input type="submit" value="Je m'inscris" />
+        <input type="submit" value="Inscription" />
       </form>
     </div>
 
@@ -48,7 +48,7 @@
           placeholder="Mot de Passe"
         />
 
-        <input type="submit" value="Je me connect" />
+        <input type="submit" value="Connexion" />
       </form>
     </div>
   </main>
@@ -57,13 +57,6 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
-import { useGlobalStore } from "/store/global.js";
-
-const globalStore = useGlobalStore();
-
-const setToken = (token) => {
-  globalStore.setToken(token);
-};
 
 const inscriptionData = ref({
   email: "",
@@ -81,11 +74,9 @@ const connexion = async () => {
       "http://localhost:3000/connexion",
       loginData.value
     );
-    
     globalStore.setToken(response.data.userId);
 
-    console.log(response.data.userId); 
-    
+    console.log(response.data.userId);
     loginData.value.email = "";
     loginData.value.password = "";
   } catch (error) {
@@ -101,7 +92,7 @@ const inscription = async () => {
     );
 
     console.log(response.data);
-    
+
     inscriptionData.value.email = "";
     inscriptionData.value.password = "";
   } catch (error) {
