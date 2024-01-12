@@ -1,11 +1,13 @@
 const express = require('express');
 const sqlite3 = require('sqlite3');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
 
 const app = express();
 const port = 3000;
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -17,62 +19,33 @@ const db = new sqlite3.Database('./database/MontresDB.db', (err) => {
   }
 });
 
-app.post('/inscription', (req, res) => {
-  const { NomUser, MotDePasse } = req.body;
-
-  const query = 'INSERT INTO Utilisateurs (NomUser, MotDePasse) VALUES (?, ?)';
-  db.run(query, [NomUser, MotDePasse], function (err) {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-
-    res.json({ UserID: this.lastID });
-  });
-});
-
-app.post('/connexion', (req, res) => {
-  const { NomUser, MotDePasse } = req.body;
-
-  const query = 'SELECT * FROM Utilisateurs WHERE NomUser = ?';
-  db.get(query, [NomUser], (err, Utilisateur) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-
-    const token = jwt.sign({ UserID: Utilisateur.UserID }, 'votre_clé_secrète', { expiresIn: '1h' });
-
-    res.json({ token, UserID: Utilisateur.UserID });
-  });
-});
-
-function verifierToken(req, res, next) {
-  const token = req.header('Authorization');
-
-  if (!token) {
-    return res.status(401).json({ error: 'Accès non autorisé' });
-  }
-
-  jwt.verify(token, 'votre_clé_secrète', (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ error: 'Token non valide' });
-    }
-
-    req.UserID = decoded.UserID;
-    next();
-  });
-}
-
 app.get('/', (req, res) => {
     res.redirect('/montres');
 });
 
 app.get('/montres', (req, res) => {
-    db.all('SELECT * FROM Montre', (err, rows) => {
-        if (err) {
-            console.error('Error fetching recipes:', err.message);
-            res.status(500).json({ error: 'Internal server error' });
-            return;
-        }
+    db.all(
+        `SELECT
+          Montre.montreID,
+          Boitier.nom AS boitier_nom,
+          Boitier.prix AS boitier_prix,
+          Boitier.texture AS boitier_texture,
+          Pierre.nom AS pierre_nom,
+          Pierre.prix AS pierre_prix,
+          Bracelet.nom AS bracelet_nom,
+          Bracelet.prix AS bracelet_prix,
+          Bracelet.texture AS bracelet_texture
+        FROM
+          Montre
+        JOIN Boitier ON Montre.boitierID = Boitier.boitierID
+        JOIN Pierre ON Montre.pierreID = Pierre.pierreID
+        JOIN Bracelet ON Montre.braceletID = Bracelet.braceletID;`,
+        (err, rows) => {
+          if (err) {
+              console.error('Error fetching watches:', err.message);
+              res.status(500).json({ error: 'Internal server error' });
+              return;
+          }
         res.json(rows);
     });
 });
