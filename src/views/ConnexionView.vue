@@ -57,6 +57,13 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
+import { useGlobalStore } from "/store/global.js";
+
+const globalStore = useGlobalStore();
+
+const setToken = (token) => {
+  globalStore.setToken(token);
+};
 
 const inscriptionData = ref({
   email: "",
@@ -77,6 +84,7 @@ const connexion = async () => {
     globalStore.setToken(response.data.userId);
 
     console.log(response.data.userId);
+    
     loginData.value.email = "";
     loginData.value.password = "";
   } catch (error) {
@@ -92,7 +100,7 @@ const inscription = async () => {
     );
 
     console.log(response.data);
-
+    
     inscriptionData.value.email = "";
     inscriptionData.value.password = "";
   } catch (error) {
