@@ -7,12 +7,12 @@
 
       <form @submit.prevent="inscription" method="post">
         <input
-          v-model="inscriptionData.email"
+          v-model="inscriptionData.username"
           type="text"
-          name="email"
-          id="inscription-email"
+          name="username"
+          id="inscription-username"
           required
-          placeholder="Email"
+          placeholder="Username"
         />
         <input
           v-model="inscriptionData.password"
@@ -32,12 +32,12 @@
 
       <form @submit.prevent="connexion" method="post">
         <input
-          v-model="loginData.email"
+          v-model="loginData.username"
           type="text"
-          name="email"
-          id="login-email"
+          name="username"
+          id="login-username"
           required
-          placeholder="Email"
+          placeholder="Username"
         />
         <input
           v-model="loginData.password"
@@ -66,26 +66,26 @@ const setToken = (token) => {
 };
 
 const inscriptionData = ref({
-  email: "",
+  username: "",
   password: "",
 });
 
 const loginData = ref({
-  email: "",
+  username: "",
   password: "",
 });
 
 const connexion = async () => {
   try {
     const response = await axios.post(
-      "http://localhost:3000/connexion",
+      "http://localhost:5173/connexion",
       loginData.value
     );
     globalStore.setToken(response.data.userId);
 
     console.log(response.data.userId);
     
-    loginData.value.email = "";
+    loginData.value.username = "";
     loginData.value.password = "";
   } catch (error) {
     console.error("Error during login:", error);
@@ -95,13 +95,13 @@ const connexion = async () => {
 const inscription = async () => {
   try {
     const response = await axios.post(
-      "http://localhost:3000/inscription",
+      "http://localhost:5173/inscription",
       inscriptionData.value
     );
 
     console.log(response.data);
     
-    inscriptionData.value.email = "";
+    inscriptionData.value.username = "";
     inscriptionData.value.password = "";
   } catch (error) {
     console.error("Error during inscription:", error.message);

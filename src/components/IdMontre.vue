@@ -92,11 +92,11 @@
     },
     mounted() {
       Promise.all([
-        axios.get(`http://localhost:3000/montres/${this.id}`),
-        axios.get(`http://localhost:3000/rawmontres/${this.id}`),
-        axios.get(`http://localhost:3000/boitier`),
-        axios.get(`http://localhost:3000/pierre`),
-        axios.get(`http://localhost:3000/bracelet`),
+        axios.get(`http://localhost:5173/montres/${this.id}`),
+        axios.get(`http://localhost:5173/rawmontres/${this.id}`),
+        axios.get(`http://localhost:5173/boitier`),
+        axios.get(`http://localhost:5173/pierre`),
+        axios.get(`http://localhost:5173/bracelet`),
       ])
         .then((responses) => {
           this.watch = responses[0].data[0];
@@ -112,7 +112,7 @@
     methods: {
       modifierMontre() {
         axios
-          .put(`http://localhost:3000/montres/${this.id}`, this.montres)
+          .put(`http://localhost:5173/montres/${this.id}`, this.montres)
           .then((response) => {
             console.log("Montre modifiée avec succès:", response.data);
           })

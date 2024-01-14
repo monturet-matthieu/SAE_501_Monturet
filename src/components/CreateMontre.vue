@@ -1,6 +1,6 @@
 <template>
     <div class="mx-4 my-4">
-      <h1>Créer votre montre</h1>
+      <h1 class="text-3xl">Personnalisez votre montre</h1>
   
       <form @submit.prevent="addWatch">
         <label for="BoitierID">Boitier :</label>
@@ -79,7 +79,7 @@
     },
     mounted() {
       axios
-        .get("http://localhost:3000/boitier")
+        .get("http://localhost:5173/boitier")
         .then((response) => {
           this.boitiers = response.data;
         })
@@ -88,7 +88,7 @@
         });
         
       axios
-        .get("http://localhost:3000/pierre")
+        .get("http://localhost:5173/pierre")
         .then((response) => {
           this.pierres = response.data;
         })
@@ -97,7 +97,7 @@
         });
 
       axios
-        .get("http://localhost:3000/bracelet")
+        .get("http://localhost:5173/bracelet")
         .then((response) => {
           this.bracelets = response.data;
         })
@@ -108,7 +108,7 @@
     methods: {
       addWatch() {
         axios
-          .post("http://localhost:3000/montre/creation", {
+          .post("http://localhost:5173/montre/creation", {
             BoitierID: this.newBoitierID,
             PierreID: this.newPierreID,
             BraceletID: this.newBraceletID,

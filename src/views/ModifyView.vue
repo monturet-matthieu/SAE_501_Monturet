@@ -64,7 +64,7 @@
         };
   
         axios
-          .put(`http://localhost:3000/montre/personnalisation/${this.watchID}`, data)
+          .put(`http://localhost:5173/montre/personnalisation/${this.watchID}`, data)
           .then((response) => {
             console.log(response.data.message);
           })
@@ -74,7 +74,7 @@
       },
       fetchBoitiers() {
         axios
-          .get("http://localhost:3000/boitier")
+          .get("http://localhost:5173/boitier")
           .then((response) => {
             this.boitiers = response.data;
           })
@@ -84,7 +84,7 @@
       },
       fetchPierres() {
         axios
-          .get("http://localhost:3000/pierre")
+          .get("http://localhost:5173/pierre")
           .then((response) => {
             this.pierres = response.data;
           })
@@ -94,7 +94,7 @@
       },
       fetchBracelets() {
         axios
-          .get("http://localhost:3000/bracelet")
+          .get("http://localhost:5173/bracelet")
           .then((response) => {
             this.bracelets = response.data;
           })

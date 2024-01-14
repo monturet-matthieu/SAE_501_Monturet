@@ -42,7 +42,7 @@ export default {
   methods: {
     fetchWatches() {
       axios
-        .get("http://localhost:3000/montres")
+        .get("http://localhost:5173/montres")
         .then((response) => {
           this.watches = response.data;
         })
@@ -52,7 +52,7 @@ export default {
     },
     deleteWatch(montreID) {
       axios
-        .delete(`http://localhost:3000/montres/${montreID}`)
+        .delete(`http://localhost:5173/montres/${montreID}`)
         .then(() => {
           this.watches = this.watches.filter(
             (watch) => watch.montreID !== montreID

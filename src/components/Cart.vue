@@ -38,7 +38,7 @@
     },
     mounted() {
       Promise.all([
-        axios.get(`http://localhost:3000/panier/${this.id}`)
+        axios.get(`http://localhost:5173/panier/${this.id}`)
       ])
         .then((responses) => {
           this.cart = responses[0].data;
@@ -53,7 +53,7 @@
         const userID = this.id;
   
         axios
-          .delete(`http://localhost:3000/panier/${userID}/delete`, {
+          .delete(`http://localhost:5173/panier/${userID}/delete`, {
             data: { montreID },
           })
           .then((response) => {

@@ -25,7 +25,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3000/montres")
+      .get("http://localhost:5173/montres")
       .then((response) => {
         this.watches = response.data;
       })
