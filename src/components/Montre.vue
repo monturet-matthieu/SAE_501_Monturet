@@ -7,10 +7,13 @@
         v-for="watch in watches"
         :key="watch.montreID"
       >
-        {{ watch.montreID }} | {{ watch.boitier_nom }} /
-        {{ watch.boitier_texture }} | {{ watch.pierre_nom }} |
-        {{ watch.bracelet_texture }} |
-        {{ watch.pierre_prix + watch.boitier_prix + watch.bracelet_prix }}
+        <p>Id de la montre : {{ watch.montreID }}</p>
+        <p>Boitier choisi : {{ watch.boitier_nom }}</p>
+        <p>Texture du boitier : {{ watch.boitier_texture }}</p>
+        <p>Pierre sertie : {{ watch.pierre_nom }}</p>
+        <p>Texture du bracelet : {{ watch.bracelet_texture }}</p>
+        <p>Prix de la montre : {{ watch.pierre_prix + watch.boitier_prix + watch.bracelet_prix }}€
+        </p>
         <RouterLink
           :to="`/montrelist/${watch.montreID}`"
           class="border-black border-2 px-2 py-1 mx-2 my-1 rounded-lg"
