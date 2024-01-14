@@ -239,7 +239,7 @@
 <template>
   <div class="flex gap-4">
     <div>
-      <canvas ref="canvas" class="" />
+      <canvas ref="canvas" />
     </div>
     <div class="flex flex-col">
       <div class="mt-2">
@@ -248,19 +248,19 @@
         </div>
         <div>
           <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTexture('texture-cuir-blanc.jpg')"
           >
             Cuir Blanc
           </button>
           <button
-            class="border-black border-2 px-2 py-1 mx-2 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 mx-2 my-1 rounded-md"
             @click="changeTexture('texture-tissus-or.jpg')"
           >
             Tissu Or
           </button>
           <button
-            class="border-black border-2 px-2 py-1 mx-2 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 mx-2 my-1 rounded-md"
             @click="changeTexture('texture-tissus-marron.jpg')"
           >
             Tissu Marron
@@ -273,7 +273,7 @@
         </div>
         <div class="flex gap-2">
           <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="toggleBoitierRond"
           >
             Boitier Rond / Carré
@@ -287,25 +287,25 @@
         <div class="gap-2">
           <div class="flex gap-4">
             <button
-              class="border-black border-2 px-4 py-2 my-1 rounded-lg"
+              class="border-blue-950 border-2 px-4 py-2 my-1 rounded-md"
               @click="changeTextureBoitierRond('background_black01.png')"
             >
               Black 01
             </button>
             <button
-              class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+              class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
               @click="changeTextureBoitierRond('background_black02.png')"
             >
               Black 02
             </button>
             <button
-              class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+              class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
               @click="changeTextureBoitierRond('background_fluo01.png')"
             >
               Fluo
             </button>
             <button
-              class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+              class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
               @click="changeTextureBoitierRond('background_mickey.png')"
             >
               Mickey
@@ -314,31 +314,31 @@
 
           <div class="flex gap-4">
             <button
-              class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+              class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
               @click="changeTextureBoitierRond('background_white01.png')"
             >
                 White 01
               </button>
               <button
-                class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+                class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
                 @click="changeTextureBoitierRond('background_white02.png')"
               >
                 White 02
               </button>
               <button
-                class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+                class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
                 @click="changeTextureBoitierRond('background_white03.png')"
               >
                 White 03
               </button>
               <button
-                class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+                class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
                 @click="changeTextureBoitierRond('background_white04.png')"
               >
                 White 04
               </button>
               <button
-                class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+                class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
                 @click="changeTextureBoitierRond('background_white05.png')"
               >
                 White 05
@@ -353,25 +353,25 @@
         <div class="">
           <div class="flex gap-4">
             <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTextureBoitierCarre('background_black01.png')"
             >
             Black 01
             </button>
             <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTextureBoitierCarre('background_black02.png')"
             >
             Black 02
             </button>
             <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTextureBoitierCarre('background_fluo01.png')"
             >
             Fluo
             </button>
             <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTextureBoitierCarre('background_mickey.png')"
             >
             Mickey
@@ -379,31 +379,31 @@
           </div>
           <div class="flex gap-4">
             <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTextureBoitierCarre('background_white01.png')"
             >
             White 01
             </button>
             <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTextureBoitierCarre('background_white02.png')"
             >
             White 02
             </button>
             <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTextureBoitierCarre('background_white03.png')"
             >
             White 03
             </button>
             <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTextureBoitierCarre('background_white04.png')"
             >
             White 04
             </button>
             <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changeTextureBoitierCarre('background_white05.png')"
             >
             White 05
@@ -423,19 +423,19 @@
         </div>
         <div class="flex gap-2">
           <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changePierreColor('rubis')"
           >
             Rubis
           </button>
           <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changePierreColor('émeraude')"
           >
             Émeraude
           </button>
           <button
-            class="border-black border-2 px-2 py-1 my-1 rounded-lg"
+            class="border-blue-950 border-2 px-2 py-1 my-1 rounded-md"
             @click="changePierreColor('diamant')"
           >
             Diamant

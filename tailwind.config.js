@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      'open': 'Open Sans, sans-serif',
+    },
+    extend: {
+      backgroundImage: {
+        'signup-bg': "url('/bg-inscription.webp')",
+        'login-bg': "url('/bg-connexion.webp')"
+      }
+    },
   },
   plugins: [],
 }
